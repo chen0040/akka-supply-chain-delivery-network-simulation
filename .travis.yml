@@ -1,0 +1,13 @@
+language: java
+jdk: oraclejdk8
+
+cache:
+  directories:
+  - $HOME/.m2
+
+before_install:
+  - chmod +x mvnw
+
+script:
+  - cd akka-supply-chain-simulation
+  - ./mvnw test cobertura:cobertura coveralls:report -B -Punit-test
